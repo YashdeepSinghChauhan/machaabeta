@@ -1,12 +1,25 @@
-%h1=@post.title
-%h2=@post.character
-%p=@post.description
+#post_show.row
+	.col-md-8.col-md-offset-2
+		.panel.panel-default
+			.panel-heading.post_image
+				= image_tag @post.image.url
+			.panel-body
+				%h1=@post.title
+				%h2=@post.character
+				%p=@post.description
 
-%p
-	Submitted by
-	= @post.user.email
-%br/
+				%p
+				Submitted by
+				= @post.user.email
+			.panel-footer
+				.row
+					.col-md-6
+						%p.user
+						Submitted by
+						= @post.user.email
+					.col-md-6
+						.btn-group.pull-right
+							= link_to "Edit", edit_post_path, class: "btn btn-default"
+							= link_to "Delete", post_path, method: :delete, data: ("Are you sure?"), class: "btn btn-default"
 
-= link_to "Back", root_path
-= link_to "Edit", edit_post_path
-= link_to "Delete", post_path, method: :delete, data: ("Are you sure?")
+
