@@ -1,10 +1,25 @@
 class PostsController < ApplicationController
-	before_action :find_post, only: [:show, :edit, :update, :destroy] 
+	before_action :find_post, only: [:show, :edit, :update, :destroy]
+	before_action :authenticate_user!, only: [:new, :edit] 
+	
+	def search
+		if params[:search].present?
+			@posts = Post.search(params[:search])
+		else
+			@posts = Post.all
+		end
+	end
+
 	def index
 		@posts = Post.all.order("created_at DESC")
 	end
 
 	def show
+		if @post.reviews.blank?
+			@average_review = 0
+		else
+			@average_review = @post.reviews.average(:rating).round(2)
+		end
 	end
 
 	def new
@@ -12,7 +27,7 @@ class PostsController < ApplicationController
 	end
 
 	def create
-		@post = @post = current_user.posts.build(post_params)
+		@post = current_user.posts.build(post_params)
 		
 		if @post.save
 			redirect_to @post, notic: "Successfully created a post"

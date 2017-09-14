@@ -19,9 +19,23 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
+.jumbotron {
+	margin-top: 40px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #333;
+	opacity: 0.8;
+	font-color: #000;
+}
+h1.display-3 { color: #fff;}
+p.lead {color: #fff;}
+hr.my-4 {color: #fff;}
+%p.m {color: #fff;}
 body {
 	background: #E9E9E9;
-	padding-top: 70px;
+	padding-top: 10px;
+	padding-bottom: 80px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -29,9 +43,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 nav {
-	opacity: 0.9;
 	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
 	.navbar-brand {
+		.navbar-brand img {
+ 			margin-top: -40px;
+   			max-height: 50px;
+    		width: 50px;
+    	}
 		a {
 			color: #EC0C79;
 			font-weight: bold;
@@ -47,13 +65,14 @@ nav {
   width: 100%;
   .box {
 	  margin: 10px;
-	  width: 350px;
+	  width: 250px;
 	  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
 	  border-radius: 7px;
 	  text-align: center;
 	  img {
 	  	max-width: 100%;
 	  	height: auto;
+	  	margin-left: 0px;
 	  }
 	  h2 {
 	  	font-size: 22px;
@@ -116,5 +135,5 @@ nav {
 }
 
 textarea {
-	min-height: 250px;
+	min-height: 100px;
 }

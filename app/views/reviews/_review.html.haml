@@ -1,0 +1,10 @@
+.review
+	.review-rating{"data-score" => "#{review.rating}"}
+	%p= review.comment
+	%p= review.user_id
+	- if user_signed_in?
+		- if review.user_id == current_user.id
+			= link_to "Edit", edit_post_review_path(review.post, review)
+			= link_to "Delete", post_review_path(review.post, review), method: :delete  		
+	%br
+

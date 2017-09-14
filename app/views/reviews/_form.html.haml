@@ -1,0 +1,14 @@
+= simple_form_for([@post, @post.reviews.build]) do |f|
+	.form-group
+		#rating-form
+			%label Rating
+	.form-group
+		= f.input :comment , input_html: { class: 'form-control' }
+
+	= f.button :submit, class: 'btn btn-primary' 
+
+:javascript 
+	$("#rating-form").raty({
+		path: '/assets/',
+		scoreName: 'review[rating]'
+	});

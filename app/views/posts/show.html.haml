@@ -6,11 +6,11 @@
 			.panel-body
 				%h1=@post.title
 				%h2=@post.character
+				.review-rating{"data-score" => "#{@average_review}"} 
+				%span.number-of-reviews
+					From #{@post.reviews.count} reviews
+	
 				%p=@post.description
-
-				%p
-				Submitted by
-				= @post.user.email
 			.panel-footer
 				.row
 					.col-md-6
@@ -19,7 +19,17 @@
 						= @post.user.email
 					.col-md-6
 						.btn-group.pull-right
-							= link_to "Edit", edit_post_path, class: "btn btn-default"
-							= link_to "Delete", post_path, method: :delete, data: ("Are you sure?"), class: "btn btn-default"
+							= link_to "Edit Post", edit_post_path, class: "btn btn-default"
+							= link_to "Delete Post", post_path, method: :delete, data: ("Are you sure?"), class: "btn btn-default"
+							= link_to "Add reviews", new_post_review_path(@post), class: "btn btn-default"
+			.panel-body
+				= render @post.reviews			
 
-
+:javascript
+	$('.review-rating').raty({
+		readOnly: true,
+		score: function() {
+			return $(this).attr('data-score');
+		},
+		path: '/assets/'
+	});
