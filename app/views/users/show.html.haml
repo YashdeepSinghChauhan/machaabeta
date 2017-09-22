@@ -1,0 +1,21 @@
+.col-md-8.col-md-offset-2
+	.panel.panel-default
+		.panel-heading.post_image
+			.row
+				.col-lg-6
+					.round-image-50-profile
+						= image_tag (@user.avatar.url(:medium))
+				.col-lg-6
+					%h2 
+						#{@user.username}
+						%h3 
+							%b= content_with_emoji(@user.myself)
+		.panel-body
+			%h1 Welcome to your profile #{@user.firstname}
+			%h4 Number of Uploads: #{@user.posts.count}
+			#posts.transitions-enabled
+				- @user.posts.each do |post|
+					.box.panel.panel-defaul
+						= link_to (image_tag post.image.url), post
+						%h2= link_to post.title, post
+						.review-rating{"data-score" => "#{@average_review}"}

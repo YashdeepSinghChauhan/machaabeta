@@ -13,12 +13,59 @@
  *
  *= require 'masonry/transitions'
  *= require_tree .
+ *= require rails_emoji_picker
  *= require_self
  */
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "rails_emoji_picker";
 
+.round-image-50 {
+    background-color: white;
+    border: 1px solid #d9d9d9;
+    border-radius: 25px;
+    -moz-border-radius: 25px;
+    -webkit-border-radius: 25px;
+    height: 50px;
+    width: 50px;
+    overflow: hidden;
+    text-align: center; 
+}
+.round-image-50-profile {
+    background-color: white;
+    border: 1px solid #d9d9d9;
+    border-radius: 100px;
+    -moz-border-radius: 100px;
+    -webkit-border-radius: 100px;
+    height: 200px;
+    width: 200px;
+    overflow: hidden;
+    text-align: center; 
+}
+.round-image-50-search {
+    background-color: white;
+    border: 1px solid #d9d9d9;
+    border-radius: 25px;
+    -moz-border-radius: 25px;
+    -webkit-border-radius: 25px;
+    height: 50px;
+    width: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+    text-align: center;
+}
+.video {
+ position: fixed;
+ top: 50%; left: 50%;
+ z-index: -1;
+ min-width: 100%;
+ min-height: 100%;
+ width: auto;
+ height: auto;
+ transform: translate(-50%, -50%);
+}
 
 .jumbotron {
 	margin-top: 40px;
@@ -135,5 +182,5 @@ nav {
 }
 
 textarea {
-	min-height: 100px;
+	min-height: 200px;
 }

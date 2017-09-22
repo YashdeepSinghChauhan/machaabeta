@@ -5,4 +5,5 @@
 			%h2= link_to post.title, post
 			%p.user
 			Submitted by
-			= post.user.email
+			.round-image-50-search
+				= image_tag (post.user.avatar.url(:thumb))

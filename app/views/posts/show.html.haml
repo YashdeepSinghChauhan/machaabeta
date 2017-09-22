@@ -4,24 +4,30 @@
 			.panel-heading.post_image
 				= image_tag @post.image.url
 			.panel-body
-				%h1=@post.title
-				%h2=@post.character
+				%h1=content_with_emoji(@post.title)
+				%h4 
+					%b Story Character:
+					#{@post.character}
 				.review-rating{"data-score" => "#{@average_review}"} 
 				%span.number-of-reviews
 					From #{@post.reviews.count} reviews
 	
-				%p=@post.description
+				%p=content_with_emoji(@post.description)
 			.panel-footer
 				.row
 					.col-md-6
 						%p.user
 						Submitted by
-						= @post.user.email
+						.round-image-50
+							= image_tag (@post.user.avatar.url(:thumb))
 					.col-md-6
 						.btn-group.pull-right
-							= link_to "Edit Post", edit_post_path, class: "btn btn-default"
-							= link_to "Delete Post", post_path, method: :delete, data: ("Are you sure?"), class: "btn btn-default"
-							= link_to "Add reviews", new_post_review_path(@post), class: "btn btn-default"
+							-if current_user.id == @post.user_id
+								= link_to "Edit Post", edit_post_path, class: "btn btn-default"
+								= link_to "Delete Post", post_path, method: :delete, data: ("Are you sure?"), class: "btn btn-default"
+								= link_to "Add reviews", new_post_review_path(@post), class: "btn btn-default"
+							-else
+								= link_to "Add reviews", new_post_review_path(@post), class: "btn btn-default"
 			.panel-body
 				= render @post.reviews			
 

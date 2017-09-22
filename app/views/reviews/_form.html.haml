@@ -3,7 +3,7 @@
 		#rating-form
 			%label Rating
 	.form-group
-		= f.input :comment , input_html: { class: 'form-control' }
+		= f.input :comment , input_html: { class: 'form-control', data: { emojiable: true} }
 
 	= f.button :submit, class: 'btn btn-primary' 
 

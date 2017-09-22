@@ -3,7 +3,6 @@ before_action :find_post
 before_action :find_review, only: [:edit, :update, :destroy]
 before_action :authenticate_user!, only: [:new, :edit] 
 	def new
-		
 		@review = Review.new
 	end
 
@@ -29,6 +28,10 @@ before_action :authenticate_user!, only: [:new, :edit]
 		else
 			render 'edit'
 		end
+	end
+	def destroy
+		@review.destroy
+		redirect_to post_path
 	end
 
 	private

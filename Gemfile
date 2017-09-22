@@ -27,6 +27,7 @@ gem 'masonry-rails', '~> 0.2.4'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'sprockets', '~> 3.7', '>= 3.7.1'
 gem 'searchkick', '~> 1.1', '>= 1.1.2'
+gem 'rails_emoji_picker'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
