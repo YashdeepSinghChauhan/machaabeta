@@ -12,7 +12,7 @@ Rails.application.configure do
 
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
-  config.assets.compile = true
+  config.assets.compile = false
   config.assets.digest = true
 
   # Attempt to read encrypted secrets from `config/secrets.yml.enc`.
